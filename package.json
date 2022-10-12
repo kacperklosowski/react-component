@@ -2,9 +2,29 @@
   "name": "@kuos/react-component",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/esm/types/index.d.ts",
+        "default": "./lib/esm/index.mjs"
+      },
+      "require": {
+        "types": "./lib/cjs/types/index.d.ts",
+        "default": "./lib/cjs/index.js"
+      }
+    }
+  },
+  "types": "./lib/cjs/types/index.d.ts",
+  "main": "./lib/cjs/index.js",
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rm -rf ./lib",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc -p ./configs/tsconfig.esm.json && mv lib/esm/index.js lib/esm/index.mjs",
+    "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
+    "prepack": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -13,13 +33,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "files": [
-    "./index.js"
-  ],
   "bugs": {
     "url": "https://github.com/kacperklosowski/react-component/issues"
   },
   "homepage": "https://github.com/kacperklosowski/react-component#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  },
   "dependencies": {}
 }
