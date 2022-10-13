@@ -1,44 +1,41 @@
 {
   "name": "@kuos/react-component",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./lib/esm/types/index.d.ts",
-        "default": "./lib/esm/index.mjs"
-      },
-      "require": {
-        "types": "./lib/cjs/types/index.d.ts",
-        "default": "./lib/cjs/index.js"
-      }
-    }
-  },
-  "types": "./lib/cjs/types/index.d.ts",
-  "main": "./lib/cjs/index.js",
+  "author": "OpusCapita",
+  "private": false,
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "type": "module",
   "files": [
-    "lib/**/*"
+    "lib"
   ],
   "scripts": {
     "clean": "rm -rf ./lib",
-    "build": "npm run clean && npm run build:esm && npm run build:cjs",
-    "build:esm": "tsc -p ./configs/tsconfig.esm.json && mv lib/esm/index.js lib/esm/index.mjs",
-    "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
+    "build": "npm run clean && rollup -c",
+    "start": "rollup -c -w",
     "prepack": "npm run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kacperklosowski/react-component.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kacperklosowski/react-component/issues"
-  },
   "homepage": "https://github.com/kacperklosowski/react-component#readme",
   "devDependencies": {
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "babel-core": "^6.26.3",
+    "babel-runtime": "^6.26.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "rollup": "^3.1.0",
+    "rollup-plugin-sass": "^1.12.16",
+    "rollup-plugin-typescript2": "^0.34.1",
     "typescript": "^4.8.4"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^16",
+    "react-dom": "^16"
+  }
 }
