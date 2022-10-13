@@ -1,0 +1,54 @@
+@use 'src/styles/mixins';
+@use 'src/styles/colors';
+@use 'src/styles/fonts';
+
+.dashboard_card {
+  @include mixins.flex-row;
+  font-family: fonts.$font-stack;
+  background-color: colors.$white;
+  width: 380px;
+  height: 80px;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  justify-content: space-between;
+
+  .card_data {
+    @include mixins.flex-column;
+    justify-content: center;
+
+    .card_title {
+      margin: 0 0 5px;
+      color: colors.$steel;
+      font-weight: 400;
+      font-size: fonts.$normal;
+
+    }
+
+    .card_description {
+      margin: 0 0 5px;
+      color: colors.$dark-steel;
+      font-weight: 700;
+      font-size: fonts.$big;
+    }
+
+    %card_change {
+      margin: 0;
+      font-size: fonts.$normal;
+    }
+
+    .card_change--growth {
+      @extend %card_change;
+      color: colors.$green;
+    }
+
+    .card_change--decline {
+      @extend %card_change;
+      color: colors.$red;
+    }
+  }
+
+  .card_circle {
+    @include mixins.flex-center;
+  }
+}

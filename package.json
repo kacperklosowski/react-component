@@ -4,11 +4,10 @@
   "description": "",
   "author": "OpusCapita",
   "private": false,
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "lib"
+    "dist"
   ],
   "scripts": {
     "clean": "rm -rf ./lib",
