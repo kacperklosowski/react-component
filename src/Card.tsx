@@ -26,6 +26,7 @@ export default function Card({
 }: CardProps) {
   return (
     <div className="dashboard_card">
+      <p>Dupa</p>
       <div className="card_data">
         <h5 className="card_title">{title}</h5>
         <h3 className="card_description">{number}</h3>
