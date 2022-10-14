@@ -10,7 +10,7 @@
     "dist"
   ],
   "scripts": {
-    "clean": "rm -rf ./lib",
+    "clean": "rm -rf ./dist",
     "build": "npm run clean && rollup -c",
     "start": "rollup -c -w",
     "prepack": "npm run build"
