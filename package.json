@@ -4,13 +4,13 @@
   "description": "",
   "author": "OpusCapita",
   "private": false,
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "files": [
-    "dist"
+    "lib"
   ],
   "scripts": {
-    "prebuild": "rimraf dist",
+    "prebuild": "rimraf lib",
     "build": "rollup -c",
     "watch": "rollup -c -w",
     "prepack": "npm run build",
