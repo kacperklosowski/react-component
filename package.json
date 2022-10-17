@@ -10,10 +10,11 @@
     "dist"
   ],
   "scripts": {
-    "clean": "rm -rf ./dist",
-    "build": "npm run clean && rollup -c",
-    "start": "rollup -c -w",
-    "prepack": "npm run build"
+    "prebuild": "rimraf dist",
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "prepack": "npm run build",
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
@@ -21,12 +22,14 @@
   },
   "homepage": "https://github.com/kacperklosowski/react-component#readme",
   "devDependencies": {
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
+    "@types/react": "^16.14.32",
+    "@types/react-dom": "^16.9.16",
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "release-it": "^15.5.0",
+    "rimraf": "^3.0.2",
     "rollup": "^3.1.0",
     "rollup-plugin-sass": "^1.12.16",
     "rollup-plugin-typescript2": "^0.34.1",
